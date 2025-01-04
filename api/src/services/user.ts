@@ -1,4 +1,4 @@
-import { User } from '@api/model/user1';
+import { User } from '@api/model/user';
 import { dataSource } from '@api/repository';
 import { IResponsePageData, Page } from '@types';
 

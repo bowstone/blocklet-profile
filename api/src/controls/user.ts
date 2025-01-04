@@ -1,5 +1,5 @@
 import { logger } from '@api/libs';
-import { User } from '@api/model/user1';
+import { User } from '@api/model/user';
 import { UserService } from '@api/services';
 import { BizStatusCode } from '@types';
 import { isNumber } from 'class-validator';
