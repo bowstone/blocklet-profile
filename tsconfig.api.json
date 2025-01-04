@@ -3,10 +3,18 @@
   "compilerOptions": {
     "outDir": "api/dist",
     "noEmit": false,
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    "lib": ["es5", "es6"],
+    "target": "ES5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "paths": {
+      "@types": ["types"],
+      "@api/*": ["api/src/*"]
+    }
   },
-  "include": [
-    "api/*.d.ts",
-    "api/src"
-  ]
+  "include": ["api/*.d.ts", "api/src", "types"]
 }

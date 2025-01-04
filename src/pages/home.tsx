@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import reactLogo from '../assets/react.svg';
+
 import blockletLogo from '../assets/blocklet.svg';
+import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
-import './home.css';
 import api from '../libs/api';
+import './home.css';
 
 function Home() {
   const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ function Home() {
 
   return (
     <>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
