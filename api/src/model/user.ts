@@ -1,9 +1,9 @@
 import { IsEmail, IsNumber, IsPhoneNumber } from 'class-validator';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
-  @Column()
+  @PrimaryGeneratedColumn()
   @IsNumber()
   id?: number;
 
