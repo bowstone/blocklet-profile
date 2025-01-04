@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import { createBlockletPlugin } from 'vite-plugin-blocklet';
 import svgr from 'vite-plugin-svgr';
@@ -15,5 +16,10 @@ export default defineConfig(() => {
         transformMixedEsModules: true,
       },
     },
+    resolve: {
+      alias: {
+        "@src": resolve(__dirname, "./src"),
+      }
+    }
   };
 });

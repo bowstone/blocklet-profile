@@ -1,4 +1,6 @@
 import ReactDOM from 'react-dom/client';
+import 'tdesign-react/esm/style';
+
 import App from './app';
 import './index.css';
 
