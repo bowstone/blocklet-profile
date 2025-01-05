@@ -35,9 +35,10 @@ api.interceptors.response.use((response: AxiosResponse<IResponseData, any>) => {
     });
   }
 
-  // 其他业务异常只记录错误日志
+  // 其他业务异常记录错误日志
   if (code !== BizStatusCode.Success) {
     logger.error(data);
+    return Promise.reject(data);
   }
 
   return data;

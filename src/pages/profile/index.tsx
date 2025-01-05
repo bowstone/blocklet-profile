@@ -12,7 +12,6 @@ export default function Profile() {
   };
   return (
     <div>
-      {/* export */}
       <ProfileForm id={id as unknown as number} onChange={handleChange} />
     </div>
   );

@@ -1,5 +1,4 @@
 import { useAsyncEffect } from '@src/hooks';
-import { logger } from '@src/libs';
 import { User } from '@src/model';
 import { getUserById } from '@src/services';
 import { useState } from 'react';
@@ -21,7 +20,6 @@ export default function Profile(props: { id: number; onChange: (id: number) => v
         const { data } = await getUserById(id);
         setProfile(data);
       } catch (error) {
-        logger.error(error);
         message.error(error.message);
       } finally {
         setLoading(false);

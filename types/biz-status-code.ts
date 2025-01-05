@@ -14,6 +14,11 @@ export enum BizStatusCode {
    * 服务错误
    */
   ServiceError = 50010,
+
+  /**
+   * 测试用
+   */
+  NotAllowModify = 10010,
   Unauthorized = 401,
   Forbidden = 403,
   NotFound = 404,
