@@ -1,17 +1,16 @@
+import { api } from '@src/libs';
 import { useState } from 'react';
 
 import blockletLogo from '../assets/blocklet.svg';
 import reactLogo from '../assets/react.svg';
 import viteLogo from '../assets/vite.svg';
-import api from '../libs/api';
 import './home.css';
 
 function Home() {
   const [count, setCount] = useState(0);
 
   async function getApiData() {
-    const { data } = await api.get('/api/data');
-    const { message } = data;
+    const { data: message } = await api.get('/data');
     alert(`Message from api: ${message}`);
   }
 

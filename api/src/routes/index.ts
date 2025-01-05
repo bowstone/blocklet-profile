@@ -23,7 +23,9 @@ router.put('/user/profile', middlewares.session(), (req, res) => {
 });
 router.use('/data', (_, res) =>
   res.json({
-    message: 'Hello Blocklet!',
+    code: 0,
+    data: 'Hello Blocklet!',
+    message: 'Success',
   }),
 );
 

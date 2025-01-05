@@ -16,5 +16,5 @@ export enum BizStatusCode {
   ServiceError = 50010,
   Unauthorized = 401,
   Forbidden = 403,
-  NotFound = 4004,
+  NotFound = 404,
 }

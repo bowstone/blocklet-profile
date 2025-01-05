@@ -10,16 +10,20 @@ const SchemaField = createSchemaField();
 
 function ProfileForm(props: {
   readPretty: boolean;
+  profile: User | null;
   onSubmit: (values: User) => Promise<boolean>;
   onCancal: () => void;
 }) {
-  const { readPretty, onCancal, onSubmit } = props;
+  const { readPretty, onCancal, onSubmit, profile } = props;
   const [loading, setLoading] = useState(false);
   const form = useMemo(() => {
     return createForm({
       readPretty,
+      values: {
+        ...profile,
+      },
     });
-  }, [readPretty]);
+  }, [readPretty, profile]);
   const schema = useProfileSchema();
 
   const handleCancel = () => {
