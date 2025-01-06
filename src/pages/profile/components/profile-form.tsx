@@ -32,7 +32,10 @@ function ProfileForm(props: {
   const handleSubmit = async (values: User) => {
     try {
       setLoading(true);
-      await onSubmit(values);
+      const ret = await onSubmit(values);
+      if (!ret) {
+        return;
+      }
       handleCancel();
     } finally {
       setLoading(false);
@@ -40,7 +43,7 @@ function ProfileForm(props: {
   };
 
   return (
-    <Form form={form} layout="vertical" labelAlign="left" labelWidth={150} previewTextPlaceholder=" ">
+    <Form form={form} layout="vertical" labelAlign="left" labelWidth={150} previewTextPlaceholder="--">
       <SchemaField schema={schema} />
       {!readPretty && (
         <FormButtonGroup align="right">

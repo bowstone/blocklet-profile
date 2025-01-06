@@ -1,13 +1,13 @@
 import Profile from '@src/pages/profile';
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
-import Home from './pages/home';
+// import Home from './pages/home';
 
 function App() {
   return (
     <div className="p-4">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Navigate to="/profile" />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="*" element={<Navigate to="/profile" />} />
       </Routes>
