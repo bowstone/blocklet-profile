@@ -32,6 +32,9 @@ app.use(
     limit: 10000,
     standardHeaders: 'draft-8',
     legacyHeaders: false,
+    validate: {
+      trustProxy: false,
+    },
     // store: ... , // Redis, Memcached, etc. See below.
   }),
 );
