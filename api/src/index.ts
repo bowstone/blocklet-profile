@@ -27,8 +27,8 @@ app.use(cors());
 // 限流
 app.use(
   rateLimit({
-    windowMs: 3 * 60 * 1000,
-    limit: 1000,
+    windowMs: 5 * 60 * 1000,
+    limit: 10000,
     standardHeaders: 'draft-8',
     legacyHeaders: false,
     // store: ... , // Redis, Memcached, etc. See below.
