@@ -12,6 +12,7 @@ declare interface AxiosInstance extends AxiosInstanceCore {
   put<T = any, R = IResponseData<T>, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<R>;
 }
 
+// @ts-ignore
 const api: AxiosInstance = createAxios({
   baseURL: `${window?.blocklet?.prefix || '/'}api`,
 });

@@ -5,7 +5,7 @@ keywords:
   - react
 group: dapp
 did: z2qaEyH81kUVDffYQrkdokmAFCeRVCFqNESsN
-main: api/dist/index.js
+main: api/dist/api/src/index.js
 author:
   name: shipeng
   email: 648385129@qq.com

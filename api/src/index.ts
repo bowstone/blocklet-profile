@@ -1,4 +1,5 @@
-import fallback from '@blocklet/sdk/lib/middlewares/fallback';
+import { isProductionEnv } from '@api/utils';
+import { csrf, fallback } from '@blocklet/sdk/lib/middlewares';
 import { BizStatusCode, IResponseData } from '@types';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -34,13 +35,12 @@ app.use(
     // store: ... , // Redis, Memcached, etc. See below.
   }),
 );
+app.use(csrf());
 const router = express.Router();
 router.use('/api', routes);
 app.use(router);
 
-const isProduction = process.env.NODE_ENV === 'production' || process.env.ABT_NODE_SERVICE_ENV === 'production';
-
-if (isProduction) {
+if (isProductionEnv) {
   const staticDir = path.resolve(process.env.BLOCKLET_APP_DIR!, 'dist');
   app.use(express.static(staticDir, { maxAge: '30d', index: false }));
   app.use(fallback('index.html', { root: staticDir }));

@@ -3,18 +3,18 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('increment', { type: 'integer' })
   @IsNumber()
   id?: number;
 
-  @Column()
+  @Column({ type: 'text', length: 100 })
   userName: string;
 
-  @Column()
+  @Column({ type: 'text', length: 100 })
   @IsEmail()
   email: string;
 
-  @Column()
+  @Column({ type: 'text', length: 50 })
   @IsPhoneNumber('CN')
   phoneNumber: string;
 }

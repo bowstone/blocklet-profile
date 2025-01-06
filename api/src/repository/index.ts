@@ -1,3 +1,4 @@
+import { isProductionEnv } from '@api/utils';
 import { resolve } from 'path';
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
@@ -8,8 +9,8 @@ const dataSource = new DataSource({
   type: 'better-sqlite3',
   database: './database.sqlite',
   synchronize: true,
-  logging: false,
-  entities: [resolve(__dirname, '../model/*.ts')],
+  logging: true,
+  entities: [resolve(__dirname, `../model/*${isProductionEnv ? '.js' : '.ts'}`)],
   migrations: [],
   subscribers: [],
 });
