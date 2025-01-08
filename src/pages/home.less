@@ -1,0 +1,46 @@
+@width: 100%;
+
+.home-page-wappr {
+  display: flex;
+  flex-direction: column;
+  // todo： 正常加前缀限制
+  .display-wapper {
+    width: @width;
+    height: 32px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .keybroad-wapper {
+    flex: 1 1 auto;
+    width: @width;
+    .key {
+      &-list {
+        display: flex;
+        margin-bottom: 16px;
+        justify-content: space-between;
+      }
+      &-item {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        background-color: #f7f7f7;
+      }
+    }
+  }
+  .confrom-actions {
+    width: @width;
+    height: 50px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    .btn-delete {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}

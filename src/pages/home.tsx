@@ -1,49 +1,41 @@
-import { api } from '@src/libs';
 import { useState } from 'react';
+import { Call1Icon, CloseCircleIcon } from 'tdesign-icons-react';
+import { Button } from 'tdesign-react';
 
-import blockletLogo from '../assets/blocklet.svg';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '../assets/vite.svg';
-import './home.css';
+import { KeyBroad } from './components';
+import './home.less';
 
 function Home() {
-  const [count, setCount] = useState(0);
+  const [inputValue, setInputValue] = useState<string[]>([]);
 
-  async function getApiData() {
-    const { data: message } = await api.get('/data');
-    alert(`Message from api: ${message}`);
-  }
-
+  const handleKeyClick = (value: string, isAdd: boolean) => {
+    setInputValue((prev) => {
+      const { length } = prev;
+      if (isAdd) {
+        return [...prev, value];
+      }
+      const newValues = [...prev];
+      newValues[length - 1] = value;
+      return newValues;
+    });
+  };
+  const handleClose = () => {
+    setInputValue((prev) => {
+      const newValue = [...prev];
+      newValue.pop();
+      return newValue;
+    });
+  };
+  const hasInput = inputValue?.length > 0;
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <a href="https://www.arcblock.io/docs/blocklet-developer/getting-started" target="_blank" rel="noreferrer">
-          <img src={blockletLogo} className="logo blocklet" alt="Blocklet logo" />
-        </a>
+    <div className="home-page-wappr">
+      <div className="display-wapper"> {inputValue.join('')}</div>
+      <KeyBroad onChange={handleKeyClick} />
+      <div className="confrom-actions">
+        <Button shape="circle" className="btn-call" icon={<Call1Icon />} />
+        {hasInput && <Button className="btn-delete" icon={<CloseCircleIcon />} onClick={handleClose} />}
       </div>
-      <h1>Vite + React + Blocklet</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount((currentCount) => currentCount + 1)}>
-          count is {count}
-        </button>
-        <br />
-        <br />
-        <button type="button" onClick={getApiData}>
-          Get API Data
-        </button>
-        <p>
-          Edit <code>src/app.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    </div>
   );
 }
 
