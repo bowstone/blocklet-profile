@@ -17,15 +17,14 @@ const keys = [
 
 export default function KeyBroad(props: { onChange: (value: string, isAdd: boolean) => void }) {
   const { onChange } = props;
-  // const timerRef = useRef<any>();
   const countRef = useRef(-1);
-  const prevRef = useRef<string>('');
+  const prevKeyRef = useRef<string>('');
   const handleKeyClick = (key: string, item: string[]) => {
     const { length } = item;
-    if (prevRef.current !== key) {
+    if (prevKeyRef.current !== key) {
       countRef.current = -1;
     }
-    prevRef.current = key;
+    prevKeyRef.current = key;
     countRef.current += 1;
     const index = countRef.current! % length;
     onChange(item[index] as string, countRef.current === 0);
